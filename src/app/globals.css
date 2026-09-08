@@ -1,9 +1,15 @@
 @import 'tailwindcss';
 
-@theme {
+/* `inline` is required here: these reference the --font-* variables that
+   next/font defines on <body>, but a plain @theme emits them on :root --
+   a parent, so the var() would resolve against nothing and invalidate
+   font-family. `inline` substitutes the value into the utility instead. */
+@theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
 
+@theme {
   /* On-screen morph curve: accelerate out, brake into the settle.
      Used by the Navbar's condense/expand on scroll. */
   --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
