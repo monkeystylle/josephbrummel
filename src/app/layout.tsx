@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Joseph Bayangos',
+  title: 'Joseph Brummel',
   description: 'Frontend Developer based in Manila, Philippines.',
 };
 
