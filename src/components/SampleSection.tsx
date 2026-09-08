@@ -8,7 +8,7 @@ import Badge from './Badge';
 const SampleSection = () => {
   return (
     <section>
-      <h2 className="mb-8 tracking-tight text-4xl font-bold text-neutral-800 max-lg:text-3xl max-sm:text-2xl">
+      <h2 className="mb-10 text-5xl font-semibold tracking-tight text-neutral-800 max-sm:text-4xl">
         Sample Projects
       </h2>
 
