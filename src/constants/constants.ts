@@ -104,7 +104,6 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 2,
-    here
     name: 'Component Library ',
     image: Storybook,
     readMoreLink: '/project/tictactoe',
