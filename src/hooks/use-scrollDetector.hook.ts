@@ -5,13 +5,11 @@ const useScrollDetector = () => {
 
   useEffect(() => {
     const updateIsScrolled = () => {
-      if (window.scrollY >= 100) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY >= 100);
     };
-    window.addEventListener('scroll', updateIsScrolled);
+    // passive: the handler never calls preventDefault, so the browser can
+    // keep scrolling on the compositor instead of waiting on this listener.
+    window.addEventListener('scroll', updateIsScrolled, { passive: true });
     updateIsScrolled();
     return () => window.removeEventListener('scroll', updateIsScrolled);
   }, []);
