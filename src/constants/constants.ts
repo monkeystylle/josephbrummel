@@ -212,3 +212,47 @@ export const QUERIES = {
   tabletAndSmaller: `(max-width: ${BREAKPOINTS.tablet / 16}rem)`,
   laptopAndSmaller: `(max-width: ${BREAKPOINTS.laptop / 16}rem)`,
 };
+
+// NAVBAR
+//
+// Each entry below becomes one menu item, rendered in BOTH the desktop bar
+// and the tablet/mobile hamburger panel. There is no second list to update.
+//
+// Every entry has exactly two slots:
+//   name -> the text the visitor reads
+//   href -> where it goes when clicked
+//
+// While this array is empty, the hamburger is hidden entirely on tablet and
+// mobile, because there would be nothing behind it to open. Add your first
+// entry and it appears automatically.
+//
+// The panel also prepends its own "Home" item, so you do NOT need to add one
+// here -- doing so would show Home twice on mobile.
+
+export interface NavLink {
+  name: string;
+  href: string;
+}
+
+// This is what a populated menu looks like. To use it, delete the empty array
+// below and uncomment this one (select the block and press Ctrl+/).
+//
+// export const NAV_LINKS: NavLink[] = [
+//   // Jumps to a section on the current page. The href after "#" must match an
+//   // id on that section, so this one needs <section id="skills"> in
+//   // TechAndTools.tsx. Without the id, the link does nothing.
+//   { name: 'Skills', href: '/#skills' },
+//
+//   // Same idea, pointing at SampleSection.tsx -> <section id="projects">
+//   { name: 'Projects', href: '/#projects' },
+//
+//   // Goes to a separate page. Requires that route to exist first, as
+//   // src/app/about/page.tsx -- otherwise it 404s.
+//   { name: 'About', href: '/about' },
+//
+//   // An external URL works too.
+//   { name: 'Resume', href: 'https://example.com/resume.pdf' },
+// ];
+
+// Empty for now -- hamburger stays hidden until this has at least one entry.
+export const NAV_LINKS: NavLink[] = [];
