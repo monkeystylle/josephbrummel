@@ -1,7 +1,17 @@
+import HomeSection from '@/components/HomeSection';
+import TechAndTools from '@/components/TechAndTools';
+import SampleSection from '@/components/SampleSection';
+
 export default function Home() {
   return (
-    <div className="pt-32">
-      <p className="text-zinc-700">Migrating…</p>
-    </div>
+    <>
+      <HomeSection />
+      <div className="max-lg:mt-32 max-sm:mt-[90px]">
+        <TechAndTools />
+      </div>
+      <div className="mt-[200px] max-lg:mt-32 max-sm:mt-[90px]">
+        <SampleSection />
+      </div>
+    </>
   );
 }
