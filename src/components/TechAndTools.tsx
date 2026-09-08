@@ -3,7 +3,7 @@ import TechAndToolsLogo from './TechAndToolsLogo';
 const TechAndTools = () => {
   return (
     <section>
-      <h2 className="mb-2 text-4xl font-bold text-neutral-800 max-lg:text-3xl max-sm:text-2xl">
+      <h2 className="mb-2 tracking-tight text-4xl font-bold text-neutral-800 max-lg:text-3xl max-sm:text-2xl">
         Skills
       </h2>
       <p className="text-xl text-zinc-700 max-sm:text-base">
