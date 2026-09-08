@@ -95,7 +95,7 @@ export const PROJECTS: Project[] = [
     name: 'Swap Space',
     image: SwapSpace,
     readMoreLink: '/project/tictactoe',
-    siteLink: 'https://www.swap-space-app.com/',
+    siteLink: 'https://www.swap-space.josephbrummel.com/',
     githubLink: 'https://github.com/monkeystylle/swap-space',
     subtitle: 'Marketplace platform for Bartering items and services.',
     withBadge: true,
