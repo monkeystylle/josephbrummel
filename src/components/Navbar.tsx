@@ -24,7 +24,7 @@ const Navbar = () => {
             JB
           </div>
           <Link href="/" className="hover:text-neutral-400">
-            Joseph Bayangos
+            Joseph Brummel
           </Link>
         </div>
       </nav>
