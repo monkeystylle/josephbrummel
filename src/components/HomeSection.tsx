@@ -3,7 +3,7 @@ import ScrollArrow from './ScrollArrow';
 const HomeSection = () => {
   return (
     <section className="relative flex h-screen flex-col items-start justify-center max-lg:mt-32 max-lg:h-auto max-lg:justify-start">
-      <h1 className="text-6xl font-bold tracking-tight text-slate-900 max-sm:text-5xl">
+      <h1 className="text-6xl font-semibold tracking-tight text-slate-900 max-sm:text-5xl">
         Hi i&apos;m Joseph! <br />
         I&apos;m a Frontend Developer.
       </h1>
