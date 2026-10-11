@@ -4,6 +4,7 @@ import { Inter, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { GoogleAnalytics } from '@/features/analytics/components/GoogleAnalytics';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Navbar />
         <main className="mx-auto w-[90%] max-w-6xl flex-1">{children}</main>
         <Footer />
+        <GoogleAnalytics />
       </body>
     </html>
   );
