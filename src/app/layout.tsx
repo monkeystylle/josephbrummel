@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: 'Joseph Brummel',
-  description: 'Frontend Developer based in Manila, Philippines.',
+  description: 'Frontend Web Developer based in Manila, Philippines.',
 };
 
 export default function RootLayout({
