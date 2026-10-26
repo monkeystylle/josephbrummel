@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter, Geist_Mono } from 'next/font/google';
 
 import './globals.css';
@@ -35,6 +36,10 @@ export default function RootLayout({
         <main className="mx-auto w-[90%] max-w-6xl flex-1">{children}</main>
         <Footer />
         <GoogleAnalytics />
+        <Script
+          src="https://ai-chat-widget.monkeystylle.workers.dev/widget.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
