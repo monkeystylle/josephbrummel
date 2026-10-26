@@ -26,20 +26,16 @@ import Storybook from '../../public/assets/project-image/storybook.png';
 import TaskTracker from '../../public/assets/project-image/task-tracker.png';
 import SwapSpace from '../../public/assets/project-image/swap-space.png';
 
-import { BadgeVariant } from '@/components/Badge/Badge.types';
 import { StaticImageData } from 'next/image';
 
 interface Project {
   id: number;
   name: string;
   image: StaticImageData;
-  readMoreLink: string;
   siteLink: string;
-  githubLink: string;
-  subtitle: string | string[];
-  withBadge: boolean;
-  badgeVariant: BadgeVariant;
-  showGithubLink: boolean;
+  githubLink?: string; // optional: leave it out and the Code pill hides
+  description: string;
+  stack: string[]; // shown in this order, joined with " · "
 }
 
 export const LOGOS = [
@@ -94,108 +90,79 @@ export const PROJECTS: Project[] = [
     id: 1,
     name: 'Swap Space',
     image: SwapSpace,
-    readMoreLink: '/project/tictactoe',
     siteLink: 'https://swap-space.josephbrummel.com/',
     githubLink: 'https://github.com/monkeystylle/swap-space',
-    subtitle: 'Marketplace platform for Bartering items and services.',
-    withBadge: true,
-    badgeVariant: 'next',
-    showGithubLink: true,
+    description: 'A marketplace for bartering items and services.',
+    stack: ['Next.js 15', 'Prisma', 'Tailwind'],
   },
   {
     id: 2,
-    name: 'Component Library ',
+    name: 'Component Library',
     image: Storybook,
-    readMoreLink: '/project/tictactoe',
     siteLink:
-      ' https://monkeystylle.github.io/storybook-mini-component-library/',
+      'https://monkeystylle.github.io/storybook-mini-component-library/',
     githubLink:
       'https://github.com/monkeystylle/storybook-mini-component-library',
-    subtitle:
-      'Custom React components built from scratch, documented and tested in Storybook',
-    withBadge: true,
-    badgeVariant: 'storybook',
-    showGithubLink: true,
+    description:
+      'Custom React components built from scratch, documented and tested in Storybook.',
+    stack: ['React', 'Storybook'],
   },
   {
     id: 3,
     name: 'Sample Tailwind Site',
     image: ResponsiveTailwind,
-    readMoreLink: '/project/tictactoe',
     siteLink: 'https://sample-tailwind-site.vercel.app/',
     githubLink: 'https://github.com/porungbandeng86/sample-tailwind-site',
-    subtitle: 'Mobile-first Next.js site styled with Tailwind CSS',
-    withBadge: true,
-    badgeVariant: 'tailwind',
-    showGithubLink: true,
+    description: 'A mobile-first Next.js site styled with Tailwind CSS.',
+    stack: ['Next.js', 'Tailwind CSS'],
   },
   {
     id: 4,
     name: 'Business Site',
     image: Arch,
-    readMoreLink: '/project/arch',
     siteLink: 'https://arch-mauve.vercel.app/',
     githubLink: 'https://github.com/monkeystylle/arch',
-    subtitle: 'Desktop first Corporate Website styled with Style Components',
-    withBadge: true,
-    badgeVariant: 'styledComponents',
-    showGithubLink: true,
+    description:
+      'A desktop-first corporate website styled with styled-components.',
+    stack: ['React', 'styled-components'],
   },
   {
     id: 5,
     name: 'News Page',
     image: News,
-    readMoreLink: '/project/tictactoe',
     siteLink: 'https://responsive-news-site.vercel.app/',
     githubLink: 'https://github.com/porungbandeng86/responsive-news-site',
-    subtitle: 'A News portal with a responsive layout design',
-    withBadge: false,
-    badgeVariant: 'javascript',
-    showGithubLink: true,
+    description: 'A news portal with a responsive layout.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
   },
-
   {
     id: 6,
     name: 'Tic Tac Toe',
     image: Tictactoe,
-    readMoreLink: '/project/tictactoe',
     siteLink: 'https://tic-tac-toe-pi-blue.vercel.app/',
     githubLink: 'https://github.com/porungbandeng86/tic-tac-toe',
-    subtitle: 'Minimalist React + TypeScript game with animation.',
-    withBadge: false,
-    badgeVariant: 'styledComponents',
-    showGithubLink: true,
+    description: 'A minimalist React + TypeScript game with animation.',
+    stack: ['React', 'TypeScript'],
   },
-
   {
     id: 7,
     name: 'Date Picker Widget',
     image: DatePicker,
-    readMoreLink: '/project/tictactoe',
     siteLink: 'https://josephbayangos.vercel.app/project/calendar',
-    githubLink: 'https://github.com/porungbandeng86/responsive-news-site',
-    subtitle:
-      'Reusable Datepicker for selecting year, month, day. Developed using Luxon - a library for dealing with dates and time ',
-    withBadge: false,
-    badgeVariant: 'styledComponents',
-    showGithubLink: false,
+    // no githubLink: the old one pointed at the news site repo
+    description:
+      'A reusable date picker for selecting a year, month, and day, built with Luxon.',
+    stack: ['React', 'Luxon'],
   },
 
-  //   {
-  //   id: 1,
+  // {
+  //   id: 8,
   //   name: 'Task Tracker',
   //   image: TaskTracker,
-  //   readMoreLink: '/project/tictactoe',
   //   siteLink: 'https://task-tracker-zeta-mocha.vercel.app/',
   //   githubLink: 'https://github.com/monkeystylle/task-tracker',
-  //   subtitle: [
-  //     'Guest Login',
-  //     'email: guest@gmail.com',
-  //     'password: user1234'
-  //   ],
-  //   withBadge: true,
-  //   badgeVariant: 'next',
-  //   showGithubLink: true,
+  //   description: 'Guest login: guest@gmail.com / user1234',
+  //   stack: ['Next.js'],
   // },
 ];
 

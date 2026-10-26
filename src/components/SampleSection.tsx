@@ -1,81 +1,86 @@
 import Image from 'next/image';
-import { ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
-import { Fragment } from 'react';
 import { PROJECTS } from '@/constants/constants';
-import Badge from './Badge';
+
+const pill =
+  'inline-flex h-7 items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 text-[12.5px] font-medium text-slate-600 transition-colors duration-150 ease-out';
 
 const SampleSection = () => {
   return (
-    <section>
-      <h2 className="mb-10 text-5xl font-semibold tracking-tight text-neutral-800 max-sm:text-4xl">
-        Sample Projects
+    <section id="projects">
+      <h2 className="text-5xl font-bold leading-[1.1] tracking-tight text-slate-900 max-sm:text-4xl">
+        Projects
       </h2>
+      <p className="mt-3 text-xl/[1.5] text-zinc-700 max-lg:text-lg/[1.55]">
+        Things I&apos;ve built to learn, experiment, and ship.
+      </p>
 
-      <div className="grid auto-rows-[400px] grid-cols-3 gap-16 max-lg:auto-rows-[380px] max-lg:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] max-lg:gap-8 max-md:grid-cols-2 max-md:gap-x-4 max-md:gap-y-8 max-sm:grid-cols-1 max-sm:gap-12">
+      <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
         {PROJECTS.map(project => (
-          <div
+          <article
             key={project.id}
-            className="relative flex flex-col rounded-lg bg-linear-to-b from-neutral-400 from-[34%] to-zinc-700 p-3 text-white shadow-md drop-shadow-lg transition-[filter] duration-200 ease-out hover:drop-shadow-2xl"
+            className="group relative flex flex-col overflow-hidden rounded-2xl bg-white pb-6 shadow-overlay transition-shadow duration-200 ease-out hover:shadow-overlay-hover"
           >
-            <div className="relative h-[55%] w-full">
-              <Image
-                src={project.image}
-                alt={project.name}
-                fill
-                priority
-                placeholder="blur"
-                className="rounded object-fill"
-              />
+            {/* Screenshot band */}
+            <div className="relative aspect-[16/10] border-b border-slate-900/[0.06] bg-slate-50">
+              <div className="absolute inset-x-[22px] top-[22px] bottom-0 overflow-hidden rounded-t-lg shadow-[0_0_0_1px_rgb(15_23_42/0.06),0_6px_18px_rgb(15_23_42/0.08)] transition-transform duration-[250ms] ease-out-strong group-hover:-translate-y-[3px] motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
+                <Image
+                  src={project.image}
+                  alt=""
+                  fill
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                  placeholder="blur"
+                  className="object-cover object-top"
+                />
+              </div>
             </div>
 
-            <a
-              href={project.siteLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 inline-block self-start text-2xl text-neutral-100 underline transition-colors duration-150 hover:text-neutral-300 hover:no-underline max-lg:text-base"
-            >
-              <h3>{project.name}</h3>
-            </a>
+            <div className="flex flex-col px-6">
+              {/* Stack */}
+              <p className="mt-5 text-[11px] font-semibold uppercase tracking-[0.08em] text-slate-500">
+                {project.stack.join(' · ')}
+              </p>
 
-            <h4 className="mt-2 whitespace-pre-line text-left text-sm font-light leading-5 text-neutral-100">
-              {Array.isArray(project.subtitle)
-                ? project.subtitle.map((line, index) => (
-                    <Fragment key={index}>
-                      {line}
-                      {index < project.subtitle.length - 1 && <br />}
-                    </Fragment>
-                  ))
-                : project.subtitle}
-            </h4>
-
-            <div className="mt-auto flex items-center justify-between">
-              <div className="flex gap-2">
-                {project.showGithubLink && (
+              {/* Actions */}
+              <div className="mt-2.5 flex flex-wrap gap-1.5">
+                {project.githubLink && (
                   <a
                     href={project.githubLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`${project.name} on GitHub`}
-                    className="origin-bottom-right transition-transform duration-200 hover:scale-[1.08] hover:text-neutral-300"
+                    aria-label={`${project.name} source code on GitHub`}
+                    className={`${pill} relative z-10 before:absolute before:-inset-x-1 before:-inset-y-2 before:content-[''] hover:border-slate-300 hover:text-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-900 active:scale-[0.97]`}
                   >
-                    <FaGithub size={32} />
+                    <FaGithub size={14} aria-hidden />
+                    Code
                   </a>
                 )}
                 <a
                   href={project.siteLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Open ${project.name}`}
-                  className="origin-bottom-right transition-transform duration-200 ease-in-out hover:scale-105 hover:text-neutral-300"
+                  aria-label={`${project.name} live site`}
+                  className={`${pill} after:absolute after:inset-0 after:rounded-2xl after:content-[''] group-hover:border-slate-300 group-hover:text-slate-900 focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-slate-900`}
                 >
-                  <ExternalLink size={32} />
+                  Live
+                  <ArrowUpRight
+                    size={13}
+                    aria-hidden
+                    className="transition-transform duration-200 ease-out group-hover:translate-x-px group-hover:-translate-y-px motion-reduce:transition-none"
+                  />
                 </a>
               </div>
-            </div>
 
-            {project.withBadge && <Badge variant={project.badgeVariant} />}
-          </div>
+              {/* Title + description */}
+              <h3 className="mt-3 text-2xl font-bold leading-tight tracking-[-0.025em] text-slate-900">
+                {project.name}
+              </h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-slate-500">
+                {project.description}
+              </p>
+            </div>
+          </article>
         ))}
       </div>
     </section>
