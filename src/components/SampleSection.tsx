@@ -20,7 +20,7 @@ const SampleSection = () => {
         {PROJECTS.map(project => (
           <article
             key={project.id}
-            className="group relative flex flex-col overflow-hidden rounded-2xl bg-white pb-6 shadow-overlay transition-shadow duration-200 ease-out hover:shadow-overlay-hover"
+            className="group relative isolate flex flex-col overflow-hidden rounded-2xl bg-white pb-6 shadow-overlay transition-shadow duration-200 ease-out hover:shadow-overlay-hover"
           >
             {/* Screenshot band */}
             <div className="relative aspect-[16/10] border-b border-slate-900/[0.06] bg-slate-50">
